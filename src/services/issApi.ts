@@ -9,10 +9,10 @@ export const IssApi = createApi({
   }),
   endpoints: (builder) => ({
     getIssLocation: builder.query<IssLocation, string>({
-      query: () => `/iss-now.json`,
+      query: (type) => `/${type}.json`,
     }),
     getPeopleInSpace: builder.query<PeopleInSpace,string>({
-      query: () =>  `/astros.json`
+      query: (type) =>  `/${type}.json`
     })
   }),
 });
