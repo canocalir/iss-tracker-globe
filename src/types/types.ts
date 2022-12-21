@@ -14,6 +14,6 @@ export interface PeopleInSpace {
         name: string,
         craft: string
     }]
-
 }
+
 

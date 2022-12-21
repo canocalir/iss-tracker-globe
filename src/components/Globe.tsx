@@ -7,6 +7,7 @@ import useTime from "../hooks/useTime";
 import Astros from "./Astros";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { astroBoxIsOpen } from "../features/astroSlice";
+import { IssLocation } from "../types/types";
 
 const Globe: React.FC = () => {
 
@@ -37,7 +38,7 @@ const Globe: React.FC = () => {
 
   return (
     <GlobeContainer>
-      <Heading>Realtime ISS Location Tracker</Heading>
+      <Heading>Realtime ISS Location</Heading>
       <Time>{timeNow}</Time>
       <ReactGlobeGl
         labelsTransitionDuration={0}
