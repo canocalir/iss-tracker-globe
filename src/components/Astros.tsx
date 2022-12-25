@@ -8,7 +8,7 @@ const Astros:React.FC = () => {
   const {data, isLoading, error} = useGetPeopleInSpaceQuery('astros')
   const dispatch = useAppDispatch()
 
-  const astroMapping = data?.people.map((astro, index) => {
+  const astroMapping = data?.people?.map((astro, index) => {
     return <PersonCard key={index} astro={astro}/>
   })
 

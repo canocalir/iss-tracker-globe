@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const GlobeContainer = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
 `;
 
-export const Heading = styled.h1`
+export const HeadingMain = styled.h1`
   position: absolute;
   z-index: 1;
   top: 20%;
@@ -27,7 +29,7 @@ export const Heading = styled.h1`
   }
 `;
 
-export const Time = styled(Heading)`
+export const Time = styled(HeadingMain)`
   top: 55%;
   @media (max-width: 768px) {
     top: 8%;
@@ -101,4 +103,12 @@ export const PeopleContainer = styled.div`
     display: flex;
     width: 100%;
     justify-content:space-around;
+`
+
+export const PersonCardContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 0.5rem;
 `

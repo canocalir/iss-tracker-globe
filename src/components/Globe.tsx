@@ -1,22 +1,22 @@
 import ReactGlobeGl from "react-globe.gl";
 import earthImage from "../assets/earth_flat_map.jpg";
-import { AstroButton, GlobeContainer, Heading, Time } from "./styled";
+import { AstroButton, GlobeContainer, Time } from "./styled";
 import { useGetIssLocationQuery } from "../services/issApi";
 
 import useTime from "../hooks/useTime";
 import Astros from "./Astros";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { astroBoxIsOpen } from "../features/astroSlice";
-import { IssLocation } from "../types/types";
+import { useEffect, useRef } from "react";
+import Heading from "./Heading";
 
 const Globe: React.FC = () => {
-
   const { data, error, isLoading } = useGetIssLocationQuery("iss-now", {
     pollingInterval: 1000,
   });
 
-  const dispatch = useAppDispatch()
-  const isOpen = useAppSelector(state => state.astros.isOpen)
+  const dispatch = useAppDispatch();
+  const isOpen = useAppSelector((state) => state.astros.isOpen);
 
   const { timeNow } = useTime();
 
@@ -27,20 +27,32 @@ const Globe: React.FC = () => {
     },
   ];
 
+  const globeEl = useRef();
+
+  useEffect(() => {
+    const globe: any = globeEl.current;
+    if (globe) {
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = 0.3;
+      globe.pointOfView({ altitude: 3 }, 5000);
+    }
+  }, []);
+
   const labelSettings = {
     color: () => "orange",
     text: () => "ISS",
     label: () => "28000km/h",
-    radius: 4,
+    radius: 3,
   };
 
-  const conditionalView = isOpen && <Astros/>
+  const conditionalView = isOpen && <Astros />;
 
   return (
     <GlobeContainer>
-      <Heading>Realtime ISS Location</Heading>
+      <Heading/>
       <Time>{timeNow}</Time>
       <ReactGlobeGl
+        ref={globeEl}
         labelsTransitionDuration={0}
         labelColor={labelSettings.color}
         labelsData={issMarker}
@@ -51,9 +63,12 @@ const Globe: React.FC = () => {
         labelLabel={labelSettings.label}
         globeImageUrl={earthImage}
         showAtmosphere={true}
+        animateIn={true}
       />
       {conditionalView}
-      <AstroButton onClick={() => dispatch(astroBoxIsOpen())}>Who's in Space?</AstroButton>
+      <AstroButton onClick={() => dispatch(astroBoxIsOpen())}>
+        Who's in Space?
+      </AstroButton>
     </GlobeContainer>
   );
 };

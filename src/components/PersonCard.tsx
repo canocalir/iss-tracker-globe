@@ -1,4 +1,5 @@
 import React from 'react'
+import { PersonCardContainer } from './styled';
 
 type Props =  {
     astro: {
@@ -9,10 +10,10 @@ type Props =  {
 
 const PersonCard = ({ astro }:Props) => {
   return (
-    <>
+    <PersonCardContainer>
     <div>{astro.name}</div>
     <div>{astro.craft}</div>
-    </>
+    </PersonCardContainer>
   )
 }
 
