@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../app/hooks";
 import { astroBoxIsOpen } from "../features/astroSlice";
 import useInterval from "../hooks/useInterval";
@@ -16,17 +17,18 @@ const Astros = () => {
   const dispatch = useAppDispatch();
 
   const astroCount = data?.number;
+
   const { value } = useInterval(astroCount!);
 
   const astroMapping = data?.people?.map((astro, index) => {
     return <PersonCard key={index} astro={astro} />;
   });
-
+console.log(value)
   return (
     <AstroContainer>
       <AstroInner>
         <AstroClose onClick={() => dispatch(astroBoxIsOpen())}>X</AstroClose>
-        <PeopleContainer slide={value > 2300 ? 0 : value}>
+        <PeopleContainer slide={value >= 2000 ? 0 : value}>
           {astroMapping}
         </PeopleContainer>
       </AstroInner>

@@ -121,6 +121,8 @@ interface PeopleProps {
 export const PeopleContainer = styled.div<PeopleProps>`
   position: absolute;
   display: flex;
+  width: max-content;
+  padding: 0 2rem 0 2rem;
   gap: 2rem;
   justify-content: space-around;
   transform: translateX(-${(props) => props.slide}px);
