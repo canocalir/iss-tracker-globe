@@ -1,24 +1,23 @@
 import ReactGlobeGl from "react-globe.gl";
-import earthImage from "../assets/earth_flat_map.jpg";
-import { AstroButton, GlobeContainer, Time } from "./styled";
+import earthImage from "../assets/earth.jpg";
+import { AstroButton, GlobeContainer } from "./styled";
 import { useGetIssLocationQuery } from "../services/issApi";
 
-import useTime from "../hooks/useTime";
 import Astros from "./Astros";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { astroBoxIsOpen } from "../features/astroSlice";
 import { useEffect, useRef } from "react";
 import Heading from "./Heading";
+import TimeNow from "./TimeNow";
+import Location from "./Location/Location";
 
-const Globe: React.FC = () => {
+const Globe = () => {
   const { data, error, isLoading } = useGetIssLocationQuery("iss-now", {
     pollingInterval: 1000,
   });
 
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.astros.isOpen);
-
-  const { timeNow } = useTime();
 
   const issMarker = [
     {
@@ -49,8 +48,12 @@ const Globe: React.FC = () => {
 
   return (
     <GlobeContainer>
-      <Heading/>
-      <Time>{timeNow}</Time>
+      <Heading />
+      <Location
+        lat={data?.iss_position.latitude}
+        lng={data?.iss_position.longitude}
+      />
+      <TimeNow />
       <ReactGlobeGl
         ref={globeEl}
         labelsTransitionDuration={0}
@@ -63,7 +66,7 @@ const Globe: React.FC = () => {
         labelLabel={labelSettings.label}
         globeImageUrl={earthImage}
         showAtmosphere={true}
-        animateIn={true}
+        animateIn={false}
       />
       {conditionalView}
       <AstroButton onClick={() => dispatch(astroBoxIsOpen())}>
