@@ -14,7 +14,11 @@ const useTime = () => {
     const interval = setInterval(() => {
       setTimeNow(orderedTime);
     }, 1000);
-    return () => clearInterval(interval);
+    return () => {
+      if(interval){
+        clearInterval(interval)
+      }
+    };
   }, []);
   return { timeNow };
 };
