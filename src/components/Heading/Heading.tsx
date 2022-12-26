@@ -1,4 +1,4 @@
-import { HeadingMain } from "./styled"
+import { HeadingMain } from "../styled"
 
 const Heading = () => {
   return (

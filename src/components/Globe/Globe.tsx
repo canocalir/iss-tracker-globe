@@ -1,18 +1,18 @@
 import ReactGlobeGl from "react-globe.gl";
-import earthImage from "../assets/earth.jpg";
-import { AstroButton, GlobeContainer } from "./styled";
-import { useGetIssLocationQuery } from "../services/issApi";
+import earthImage from "../../assets/earth.jpg";
+import { AstroButton, GlobeContainer } from "../styled";
+import { useGetIssLocationQuery } from "../../services/issApi";
 
-import Astros from "./Astros";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { astroBoxIsOpen } from "../features/astroSlice";
+import Astros from "../Astros/Astros";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { astroBoxIsOpen } from "../../features/astroSlice";
 import { useEffect, useRef } from "react";
-import Heading from "./Heading";
-import TimeNow from "./TimeNow";
-import Location from "./Location/Location";
+import Heading from "../Heading/Heading";
+import TimeNow from "../TimeNow/TimeNow";
+import Location from "../Location/Location";
 
 const Globe = () => {
-  const { data, error, isLoading } = useGetIssLocationQuery("iss-now", {
+  const { data } = useGetIssLocationQuery("iss-now", {
     pollingInterval: 1000,
   });
 

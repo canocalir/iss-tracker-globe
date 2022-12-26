@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
-import { useAppDispatch } from "../app/hooks";
-import { astroBoxIsOpen } from "../features/astroSlice";
-import useInterval from "../hooks/useInterval";
-import { useGetPeopleInSpaceQuery } from "../services/issApi";
-import PersonCard from "./PersonCard";
+import { useAppDispatch } from "../../app/hooks";
+import { astroBoxIsOpen } from "../../features/astroSlice";
+import useInterval from "../../hooks/useInterval";
+import { useGetPeopleInSpaceQuery } from "../../services/issApi";
+import PersonCard from "../PersonCard/PersonCard";
 import {
   AstroClose,
   AstroContainer,
   AstroInner,
   PeopleContainer,
-} from "./styled";
+} from "../styled";
 
 const Astros = () => {
-  const { data, isLoading, error } = useGetPeopleInSpaceQuery("astros");
+  const { data } = useGetPeopleInSpaceQuery("astros");
 
   const dispatch = useAppDispatch();
 

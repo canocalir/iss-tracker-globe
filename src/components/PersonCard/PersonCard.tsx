@@ -1,5 +1,5 @@
-import { AstroImage, PersonCardContainer } from "./styled";
-import astroImage from "../assets/astro.jpg";
+import { AstroImage, PersonCardContainer } from "../styled";
+import astroImage from "../../assets/astro.jpg";
 
 type Props = {
   astro: {

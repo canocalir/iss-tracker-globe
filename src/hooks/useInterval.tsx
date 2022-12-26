@@ -14,7 +14,7 @@ const useInterval = (val: number) => {
         clearInterval(interval);
       }
     };
-  }, [value]);
+  }, [value]); // eslint-disable-line
   return { value };
 };
 

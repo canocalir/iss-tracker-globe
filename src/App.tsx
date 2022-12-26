@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Globe from './components/Globe';
+import Globe from './components/Globe/Globe';
 
 function App() {
   return (

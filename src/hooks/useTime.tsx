@@ -19,7 +19,7 @@ const useTime = () => {
         clearInterval(interval)
       }
     };
-  }, []);
+  }, []);// eslint-disable-line
   return { timeNow };
 };
 
