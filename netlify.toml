@@ -1,12 +1,10 @@
-[build]
-  command = "yarn build && yarn"
-  functions = "functions"
-  publish = "dist"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "same-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
