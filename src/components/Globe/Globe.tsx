@@ -12,7 +12,7 @@ import TimeNow from "../TimeNow/TimeNow";
 import Location from "../Location/Location";
 
 const Globe = () => {
-  const { data } = useGetIssLocationQuery("location", {
+  const { data } = useGetIssLocationQuery("iss-now", {
     pollingInterval: 1000,
   });
 
