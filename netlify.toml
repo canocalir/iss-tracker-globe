@@ -1,8 +1,8 @@
 [build]
-  command = "yarn build && cd functions/node-fetch && yarn"
+  command = "yarn build && yarn"
   functions = "functions"
   publish = "dist"
-  
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
