@@ -5,7 +5,7 @@ import { IssLocation, PeopleInSpace } from "../types/types";
 export const IssApi = createApi({
   reducerPath: "IssLocationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.open-notify.org/",
+    baseUrl: "https://cors-anywhere.herokuapp.com/http://api.open-notify.org/",
   }),
   endpoints: (builder) => ({
     getIssLocation: builder.query<IssLocation, string>({
