@@ -8,6 +8,6 @@
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
+  for = "http://api.open-notify.org/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
