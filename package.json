@@ -21,7 +21,6 @@
     "typescript": "^4.6.0",
     "web-vitals": "^2.1.0"
   },
-  "proxy": "http://api.open-notify.org/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
