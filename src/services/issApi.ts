@@ -5,7 +5,7 @@ import { IssLocation, PeopleInSpace } from "../types/types";
 export const IssApi = createApi({
   reducerPath: "IssLocationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://api.open-notify.org/",
+    baseUrl: "/api/",
   }),
   endpoints: (builder) => ({
     getIssLocation: builder.query<IssLocation, string>({
