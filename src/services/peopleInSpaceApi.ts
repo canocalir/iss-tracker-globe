@@ -4,7 +4,7 @@ import { PeopleInSpace } from "../types/types";
 export const PeopleInSpaceApi = createApi({
     reducerPath: 'InSpaceApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: ``,
+        baseUrl: `https://www.howmanypeopleareinspacerightnow.com/`,
     }),
     endpoints: (builder) => ({
         getPeopleInSpace: builder.query<PeopleInSpace,string>({
