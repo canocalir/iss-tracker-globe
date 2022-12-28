@@ -1,4 +1,5 @@
 import { AstroFlag, AstroImage, PersonCardContainer } from "../styled";
+
 import astroNone from '../../assets/astro.jpg'
 type Person = {
   astro:{
@@ -25,7 +26,7 @@ const PersonCard = ({ astro }: Person ) => {
     event.currentTarget.src = astroNone;
    
   };
-  console.log(astro)
+  
   return (
     <PersonCardContainer>
       <AstroFlag src={astro.countryflag}/>

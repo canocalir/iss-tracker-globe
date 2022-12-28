@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { astroBoxIsOpen } from "../../features/astroSlice";
 import useInterval from "../../hooks/useInterval";
