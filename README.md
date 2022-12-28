@@ -8,11 +8,10 @@
 * Styled Components
 * ThreeJS
 
-## [Click here for live demo](https://gleaming-bunny-a87b8c.netlify.app/)
+## [Click here for live demo](https://iss-tracker-globe.vercel.app/)
 
 
-![issloc](https://user-images.githubusercontent.com/11324886/209549879-282171e0-8f96-4086-9434-1c4ca1263456.gif)
-
+![iss](https://user-images.githubusercontent.com/11324886/209843461-3439e52f-073b-46b9-88c9-ca9a3f77792c.gif)
 
 
 ## License
