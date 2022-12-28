@@ -4,6 +4,7 @@ import useInterval from "../../hooks/useInterval";
 import { useGetPeopleInSpaceQuery } from "../../services/peopleInSpaceApi";
 
 import PersonCard from "../PersonCard/PersonCard";
+import Spinner from "../Spinner/Spinner";
 import {
   AstroClose,
   AstroContainer,
@@ -12,7 +13,7 @@ import {
 } from "../styled";
 
 const Astros = () => {
-  const { data } = useGetPeopleInSpaceQuery("peopleinspace");
+  const { data, isLoading } = useGetPeopleInSpaceQuery("peopleinspace");
 
   const dispatch = useAppDispatch();
 
@@ -31,7 +32,7 @@ const slideConditional = value >= 2000 ? 0 : value
       <AstroInner>
         <AstroClose onClick={() => dispatch(astroBoxIsOpen())}>X</AstroClose>
         <PeopleContainer slide={slideConditional}>
-          {astroMapping}
+          {isLoading ? <Spinner/> : astroMapping}
         </PeopleContainer>
       </AstroInner>
     </AstroContainer>

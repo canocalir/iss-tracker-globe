@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const GlobeContainer = styled.div`
   position: relative;
@@ -100,6 +100,7 @@ export const AstroInner = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border-radius: 2rem 2rem 0 0;
 `;
 
 export const AstroClose = styled.button`
@@ -145,6 +146,7 @@ export const PersonCardContainer = styled.div`
   width: 200px;
   background-color: #fff;
   position:relative;
+  border-radius: 2rem 2rem 0 0;
 `;
 
 export const AstroImage = styled.img`
@@ -158,4 +160,29 @@ export const AstroFlag = styled.img`
   top:1rem;
   right:1rem;
   width: 2.5rem;
+`
+
+//Spinner
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const SpinnerBody = styled.div`
+  animation: ${rotate360} 1s linear infinite;
+  transform: translateZ(0);
+  
+  border-top: 2px solid grey;
+  border-right: 2px solid grey;
+  border-bottom: 2px solid grey;
+  border-left: 4px solid black;
+  background: transparent;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 `
