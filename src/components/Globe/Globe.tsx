@@ -1,5 +1,6 @@
 import ReactGlobeGl from "react-globe.gl";
 import earthImage from "../../assets/earth.jpg";
+import bgImage from "../../assets/stars.jpg";
 import { AstroButton, GlobeContainer } from "../styled";
 import { useGetIssLocationQuery } from "../../services/issApi";
 
@@ -12,8 +13,8 @@ import TimeNow from "../TimeNow/TimeNow";
 import Location from "../Location/Location";
 
 const Globe = () => {
-  const { data } = useGetIssLocationQuery("iss-now", {
-    pollingInterval: 1000,
+  const { data } = useGetIssLocationQuery("25544", {
+    pollingInterval: 2000,
   });
 
   const dispatch = useAppDispatch();
@@ -21,8 +22,8 @@ const Globe = () => {
 
   const issMarker = [
     {
-      lat: data?.iss_position.latitude,
-      lng: data?.iss_position.longitude,
+      lat: data?.latitude,
+      lng: data?.longitude,
     },
   ];
 
@@ -32,7 +33,7 @@ const Globe = () => {
     const globe: any = globeEl.current;
     if (globe) {
       globe.controls().autoRotate = true;
-      globe.controls().autoRotateSpeed = 0.3;
+      globe.controls().autoRotateSpeed = 0.1;
       globe.pointOfView({ altitude: 3 }, 5000);
     }
   }, []);
@@ -40,7 +41,7 @@ const Globe = () => {
   const labelSettings = {
     color: () => "orange",
     text: () => "ISS",
-    label: () => "28000km/h",
+    label: () => String(data?.velocity.toFixed(2) + "km/h"),
     radius: 3,
   };
 
@@ -50,8 +51,9 @@ const Globe = () => {
     <GlobeContainer>
       <Heading />
       <Location
-        lat={data?.iss_position.latitude}
-        lng={data?.iss_position.longitude}
+        spd={String(data?.velocity.toFixed(2) + "km/h")}
+        lat={Number(data?.latitude.toFixed(4))}
+        lng={Number(data?.longitude.toFixed(4))}
       />
       <TimeNow />
       <ReactGlobeGl
@@ -67,6 +69,7 @@ const Globe = () => {
         globeImageUrl={earthImage}
         showAtmosphere={true}
         animateIn={false}
+        backgroundImageUrl={bgImage}
       />
       {conditionalView}
       <AstroButton onClick={() => dispatch(astroBoxIsOpen())}>

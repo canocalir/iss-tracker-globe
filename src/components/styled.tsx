@@ -30,8 +30,8 @@ export const HeadingMain = styled.h1`
 `;
 
 export const LocationMain = styled(HeadingMain)`
-  top: 47%;
-  font-size: 2rem;
+  top: 51%;
+  font-size: 1.5rem;
   @media (max-width: 768px) {
     top: 12%;
     font-size: 1rem;
@@ -42,7 +42,7 @@ export const LocationMain = styled(HeadingMain)`
 `
 
 export const Time = styled(HeadingMain)`
-  top: 55%;
+  top: 60%;
   @media (max-width: 768px) {
     top: 8%;
   }
@@ -52,7 +52,7 @@ export const AstroContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 80%;
-  height: 15rem;
+  height: 18rem;
   bottom: 0;
   background-color: #ffffffef;
   position: absolute;
