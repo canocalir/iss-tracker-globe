@@ -21,7 +21,7 @@ export const HeadingMain = styled.h1`
   text-transform: uppercase;
   transition: all 0.25s ease-out;
   @media (max-width: 768px) {
-    top: 5%;
+    top: 4%;
     font-size: 1rem;
     text-align: center;
     width: 100%;
@@ -54,7 +54,7 @@ export const AstroContainer = styled.div`
   width: 80%;
   height: 18rem;
   bottom: 0;
-  background-color: #ffffffef;
+  background-color: #fffefdec;
   position: absolute;
   z-index: 1;
   border-radius: 2rem 2rem 0 0;
@@ -68,9 +68,13 @@ export const AstroButton = styled.button`
   width: 20rem;
   height: 3rem;
   border: none;
+  color: #fff;
+  outline: 2px solid white;
+  outline-offset: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
   position: absolute;
+  background-color: #da8e03;
   top: 50%;
   right: 10%;
   cursor: pointer;
@@ -86,6 +90,8 @@ export const AstroButton = styled.button`
   }
   &:hover {
     background-color: #b6b3b3;
+    outline-offset: 0rem;
+    transition: 200ms ease-in;
   }
 `;
 
@@ -137,6 +143,8 @@ export const PersonCardContainer = styled.div`
   border-radius: 0.5rem;
   padding: 1.2rem;
   width: 200px;
+  background-color: #fff;
+  position:relative;
 `;
 
 export const AstroImage = styled.img`
@@ -144,3 +152,10 @@ export const AstroImage = styled.img`
   max-width: 150px;
   border-radius: 0.5rem;
 `;
+
+export const AstroFlag = styled.img`
+  position: absolute;
+  top:1rem;
+  right:1rem;
+  width: 2.5rem;
+`
