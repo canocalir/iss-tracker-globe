@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { astroBoxIsOpen } from "../../features/astroSlice";
 import useInterval from "../../hooks/useInterval";
-import { useGetPeopleInSpaceQuery } from "../../services/issApi";
+import { useGetPeopleInSpaceQuery } from "../../services/peopleInSpaceApi";
+
 import PersonCard from "../PersonCard/PersonCard";
 import {
   AstroClose,
@@ -11,7 +13,7 @@ import {
 } from "../styled";
 
 const Astros = () => {
-  const { data } = useGetPeopleInSpaceQuery("astros");
+  const { data } = useGetPeopleInSpaceQuery("peopleinspace");
 
   const dispatch = useAppDispatch();
 
@@ -22,12 +24,14 @@ const Astros = () => {
   const astroMapping = data?.people?.map((astro, index) => {
     return <PersonCard key={index} astro={astro} />;
   });
-console.log(value)
+
+const slideConditional = value >= 2000 ? 0 : value
+
   return (
     <AstroContainer>
       <AstroInner>
         <AstroClose onClick={() => dispatch(astroBoxIsOpen())}>X</AstroClose>
-        <PeopleContainer slide={value >= 2000 ? 0 : value}>
+        <PeopleContainer slide={slideConditional}>
           {astroMapping}
         </PeopleContainer>
       </AstroInner>

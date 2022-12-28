@@ -1,20 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { IssLocation, PeopleInSpace } from "../types/types";
+import { IssLocation } from "../types/types";
 
 export const IssApi = createApi({
   reducerPath: "IssLocationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://api.open-notify.org/",
+    baseUrl: "https://api.wheretheiss.at/v1/satellites/",
   }),
   endpoints: (builder) => ({
     getIssLocation: builder.query<IssLocation, string>({
-      query: (type) => `/${type}.json`,
+      query: (type) => `/${type}`,
     }),
-    getPeopleInSpace: builder.query<PeopleInSpace,string>({
-      query: (type) =>  `/${type}.json`
-    })
   }),
 });
 
-export const { useGetIssLocationQuery, useGetPeopleInSpaceQuery } = IssApi
+export const { useGetIssLocationQuery } = IssApi;
