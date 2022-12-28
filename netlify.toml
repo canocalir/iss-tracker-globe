@@ -1,5 +1,5 @@
 [[redirects]]
   from = ""
-  to = "https://www.howmanypeopleareinspacerightnow.com/"
+  to = "https://www.howmanypeopleareinspacerightnow.com/:splat"
   status = 200
   force = true
