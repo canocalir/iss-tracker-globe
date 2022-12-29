@@ -184,5 +184,4 @@ export const SpinnerBody = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  text-align: center;
 `

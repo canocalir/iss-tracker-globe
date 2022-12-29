@@ -51,7 +51,7 @@ const Globe = () => {
     <GlobeContainer>
       <Heading />
       <Location
-        spd={String(data?.velocity.toFixed(2) + "km/h")}
+        spd={String(data?.velocity.toFixed(2))}
         lat={Number(data?.latitude.toFixed(4))}
         lng={Number(data?.longitude.toFixed(4))}
       />

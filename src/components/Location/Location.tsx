@@ -7,16 +7,21 @@ type Props = {
 };
 
 const Location = ({ lat, lng, spd }: Props) => {
+  const initialData = {
+    lat: 'loading',
+    lng: 'loading',
+    spd: 'loading'
+  }
   return (
     <LocationMain>
       <p style={{ margin: 0 }}>
-        <span style={{ color: "orange" }}>Lat:</span> {lat}
+        <span style={{ color: "orange" }}>Lat:</span> {lat || initialData.lat}
       </p>
       <p style={{ margin: 0 }}>
-        <span style={{ color: "orange" }}>Lng:</span> {lng}
+        <span style={{ color: "orange" }}>Lng:</span> {lng || initialData.lng}
       </p>
       <p style={{ margin: 0 }}>
-        <span style={{ color: "orange" }}>Vel:</span> {spd}
+        <span style={{ color: "orange" }}>Vel:</span> {spd === 'undefined' ? initialData.spd : spd + " km/h"}
       </p>
     </LocationMain>
   );
