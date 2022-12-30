@@ -30,7 +30,7 @@ export const HeadingMain = styled.h1`
 `;
 
 export const LocationMain = styled(HeadingMain)`
-  top: 51%;
+  top: 56%;
   font-size: 1.5rem;
   @media (max-width: 768px) {
     top: 12%;
@@ -42,7 +42,7 @@ export const LocationMain = styled(HeadingMain)`
 `
 
 export const Time = styled(HeadingMain)`
-  top: 60%;
+  top: 65%;
   @media (max-width: 768px) {
     top: 8%;
   }
